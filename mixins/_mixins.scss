@@ -1,0 +1,11 @@
+@mixin transform-rotate($val) {
+    -webkit-transform: rotate($val);
+    -ms-transform: rotate($val);
+    transform: rotate($val);
+}
+
+@mixin screen-max-40 {
+    @media screen and (max-width: 39.9375em) { /* max-width: 39.9375em */
+        @content;
+    }
+}

@@ -1,0 +1,31 @@
+%arrrow-icon {
+    border: solid $white;
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+    padding: 3px;
+    position: relative;
+}
+%close-icon{
+    background-repeat: no-repeat;
+    width: 18px;
+    height: 18px;
+    position: relative;
+    float: right;
+    cursor: pointer;
+    right: 27px;
+    top: 0;
+    background-image: none !important;
+    background: none !important;
+    background-position: unset !important;
+}
+
+
+
+%close-icon-before-after{
+    position: absolute;
+    left: 8px;
+    content: ' ';
+    height: 18px;
+    width: 2px;
+    background-color: $white;
+}

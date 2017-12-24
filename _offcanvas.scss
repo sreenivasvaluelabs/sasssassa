@@ -1,0 +1,163 @@
+/*Offcanvas */
+
+#offcanvas {
+    position: fixed;
+    opacity: 0;
+    top: 0;
+    right: calc((100% - 1024px)/2);
+    right: -webkit-calc((100% - 1024px)/2);
+    right: -moz-calc((100% - 1024px)/2);
+    height: 100%;
+    background: $grey--0;
+    z-index: -1;
+    width: 25%;
+    padding: 18px 0 55px 0;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    @mixin screen-max-40 {
+        right: -100%;
+        width: 100%;
+    }
+    &.pull {
+        right: calc((100% - 1024px)/2);
+        right: -webkit-calc((100% - 1024px)/2);
+        right: -moz-calc((100% - 1024px)/2);
+        opacity: 1;
+        z-index: 999;
+        @mixin screen-max-40 {
+            right: 0px;
+        }
+    }
+    .close {
+        @extend %close-icon;
+        >span {
+            float: right;
+            font-size: 0.9375rem;
+            cursor: pointer;
+        }
+        &:before,
+        &:after {
+            @extend %close-icon-before-after;
+        }
+    }
+    .slimScrollDiv {
+        float: left;
+        margin: 30px 0 0 0;
+        height: calc(100% - 48px) !important;
+        height: -webkit-calc(100% - 48px) !important;
+        height: -moz-calc(100% - 48px) !important;
+        @mixin screen-max-40 {
+            margin: 57px 0 0 0;
+            height: calc(100% - 75px) !important;
+            height: -webkit-calc(100% - 75px) !important;
+            height: -moz-calc(100% - 75px) !important;
+        }
+    }
+    .slimScrollBar {
+        border-radius: 0 !important;
+        background: $grey--19!important;
+        opacity: 1 !important;
+        right: 0 !important;
+    }
+    .menu {
+        margin: 0;
+        width: 100% !important;
+        float: left;
+        @mixin screen-max-40 {
+            margin-top: 0px;
+        }
+        a {
+            display: block;
+            position: relative;
+            z-index: 1;
+            padding: 0 30px;
+        }
+        >li {
+            float: left;
+            display: block;
+            width: 100%;
+            >ul {
+                height: 0;
+                overflow: hidden;
+                opacity: 0;
+                margin: 0;
+                float: left;
+                width: 100%;
+                &.open {
+                    height: auto;
+                    overflow: visible;
+                    opacity: 1;
+                    padding: 20px 30px 24px 30px;
+                    background-color: $blue--0;
+                }
+                li {
+                    margin-left: 20px;
+                }
+            }
+            >a {
+                color: $white;
+                font-family: inherit;
+                font-size: 0.9375rem;
+                text-transform: uppercase;
+                padding-top: 15px;
+                padding-bottom: 15px;
+                @mixin screen-max-40 {
+                    font-size: 0.875rem;
+                }
+            }
+            &:first-child {
+                >a {
+                    padding-top: 0;
+                }
+            }
+            &:last-child {
+                >a {
+                    padding-bottom: 0;
+                }
+            }
+            &.dropdown {
+                position: relative;
+                @mixin screen-max-40 {
+                    span*, > span* {
+                        font-size: 0.875rem;
+                    }
+                }
+                li a {
+                    font-size: 0.875rem;
+                    color: $white;
+                    text-transform: initial;
+                }
+                >a {
+                    background-color: $blue--2;
+                    span {
+                        margin-left: 10px;
+                        @mixin screen-max-40 {
+                            margin-left: 5px;
+                        }
+                        i {
+                            @extend %arrrow-icon;
+                            &.right {
+                                @include transform-rotate(-45deg)
+                            }
+                            &.left {
+                                @include transform-rotate(135deg);
+                            }
+                            &.up {
+                                @include transform-rotate(-135deg);
+                                top: 2px;
+                            }
+                            &.down {
+                                @include transform-rotate(45deg);
+                                top: -2px;
+                            }
+                        }
+                    }
+                }
+                >.open li a {
+                    padding-left: 0;
+                    padding-right: 0;
+                }
+            }
+        }
+    }
+}
